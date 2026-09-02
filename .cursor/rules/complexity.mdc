@@ -1,0 +1,20 @@
+---
+description: Production-safe complexity limits
+globs: src/**/*.go
+alwaysApply: false
+---
+
+# Complexity & Scale Safety
+
+Limits (enforced by `make ai-complexity`):
+- Max **300 lines** per file
+- Max **80 lines** per function
+- Max **15** cyclomatic complexity
+
+If exceeded, split into:
+- handler → service → repository
+- one file per use case when needed
+
+Avoid deep nesting; prefer early returns.
+
+Run `make ai-complexity` before merge.

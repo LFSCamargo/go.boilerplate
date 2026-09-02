@@ -1,0 +1,25 @@
+rules:
+  - id: jwt-none-algorithm
+    languages: [go]
+    message: Do not allow JWT 'none' algorithm.
+    severity: ERROR
+    pattern: jwt.SigningMethodNone
+
+  - id: go-sql-concat-query
+    languages: [go]
+    message: Possible SQL injection — use GORM placeholders, not string concatenation.
+    severity: ERROR
+    pattern-either:
+      - pattern: fmt.Sprintf("SELECT ..." + $X, ...)
+      - pattern: fmt.Sprintf("INSERT ..." + $X, ...)
+      - pattern: fmt.Sprintf("UPDATE ..." + $X, ...)
+      - pattern: fmt.Sprintf("DELETE ..." + $X, ...)
+
+  - id: go-hardcoded-jwt-secret
+    languages: [go]
+    message: Hardcoded bearer/JWT secret detected — use environment config.
+    severity: ERROR
+    pattern-either:
+      - pattern: BearerSecret = "$SECRET"
+      - pattern: bearerSecret = "$SECRET"
+      - pattern: jwtSecret = "$SECRET"

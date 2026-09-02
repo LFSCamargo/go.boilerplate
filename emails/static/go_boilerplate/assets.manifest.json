@@ -1,0 +1,44 @@
+{
+  "source": {
+    "fileKey": "vkeMjKNcfWdUvmfHdUfL8H",
+    "fileName": "SaaS Email Templates (Community)",
+    "communityUrl": "https://www.figma.com/community/file/1626680546446620209/saas-email-templates",
+    "styleSectionNodeId": "2:7184",
+    "styleName": "Protocol",
+    "brand": "Go Boilerplate"
+  },
+  "assets": [
+    {
+      "path": "hero_image.png",
+      "figmaNodeId": "2:7186",
+      "figmaAssetName": "Hero Image",
+      "usedIn": ["verify_email"]
+    },
+    {
+      "path": "logo_mark.svg",
+      "figmaNodeId": "2:7188",
+      "figmaAssetName": "Logo Mark",
+      "usedIn": ["verify_email", "password_reset"]
+    },
+    {
+      "path": "social_x.svg",
+      "figmaNodeId": "2:7208",
+      "usedIn": ["verify_email", "password_reset"]
+    },
+    {
+      "path": "social_linkedin.svg",
+      "figmaNodeId": "2:7209",
+      "usedIn": ["verify_email", "password_reset"]
+    },
+    {
+      "path": "social_youtube.svg",
+      "figmaNodeId": "2:7210",
+      "usedIn": ["verify_email", "password_reset"]
+    },
+    {
+      "path": "social_github.svg",
+      "figmaNodeId": "2:7211",
+      "usedIn": ["verify_email", "password_reset"]
+    }
+  ]
+}

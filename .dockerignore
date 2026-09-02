@@ -1,0 +1,12 @@
+.git
+.env
+.env.*
+!.env.example
+**/*.md
+tmp
+tmp/
+bin
+dist
+uploads
+emails/node_modules
+emails/emails/static

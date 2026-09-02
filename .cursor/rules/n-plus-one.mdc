@@ -1,0 +1,27 @@
+---
+description: GORM N+1 prevention for repositories and services
+globs: src/**/*.go
+alwaysApply: false
+---
+
+# N+1 SQL Prevention
+
+When loading related data in loops, use batch loading:
+
+```go
+// BAD — N+1
+for _, conv := range conversations {
+    db.Where("conversation_id = ?", conv.ID).Find(&messages)
+}
+
+// GOOD — Preload
+db.Preload("Messages").Find(&conversations)
+
+// GOOD — single query with Joins
+db.Joins("JOIN messages ON ...").Find(&results)
+```
+
+Rules:
+- Repository layer owns query shape
+- List endpoints must document Preload strategy in tests
+- Run `make ai-n-plus-one` before completing DB work

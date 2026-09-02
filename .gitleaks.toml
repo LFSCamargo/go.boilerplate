@@ -1,0 +1,13 @@
+title = "go.boilerplate gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+paths = [
+  '''\.env\.example$''',
+  '''docs/''',
+  '''templates/''',
+  '''_test\.go$''',
+  '''assets\.manifest\.json$''',
+]

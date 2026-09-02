@@ -1,0 +1,15 @@
+---
+description: Test-driven development — tests required for all implementations
+globs: src/**/*.go
+alwaysApply: false
+---
+
+# Test-Driven Development
+
+1. **Features** — write implementation tests first (handler/service/repository)
+2. **Bugs** — write regression test reproducing the bug, then fix
+3. **HTTP modules** — use `httptest.NewRequest` + `app.Test()` (Fiber v3)
+
+Every changed `.go` file (except `main.go`) needs a corresponding `*_test.go`.
+
+Run `make ai-test-driven` and `make test` before finishing.

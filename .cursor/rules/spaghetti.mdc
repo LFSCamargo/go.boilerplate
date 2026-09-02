@@ -1,0 +1,20 @@
+---
+description: Prevent spaghetti — one context per file
+globs: src/**/*.go
+alwaysApply: false
+---
+
+# Spaghetti Prevention
+
+One primary responsibility per file:
+
+| File | Allowed |
+|------|---------|
+| `router.go` | Route registration only |
+| `handlers/*.go` | HTTP in/out, call services |
+| `services/*.go` | Business rules |
+| `repositories/*.go` | GORM queries |
+
+**Never** combine router + handler + DB in one file.
+
+Run `make ai-spaghetti` after structural changes.

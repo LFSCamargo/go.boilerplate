@@ -1,0 +1,19 @@
+---
+description: Security standards — lightweight and heavy scans
+globs: "**/*"
+alwaysApply: false
+---
+
+# Security
+
+## Always
+- Secrets via env (`config` package), never hardcoded
+- Hash passwords (bcrypt), hash OTP at rest
+- Validate JWT + check `revoked_tokens`
+- Parameterized GORM queries only
+
+## Scans
+- Light (every edit): `make ai-security-light` — go vet, gosec
+- Heavy (before done): `make ai-security-heavy` — semgrep + gitleaks
+
+Never bypass failing security checks.

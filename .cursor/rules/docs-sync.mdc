@@ -1,0 +1,18 @@
+---
+description: Keep docs/DESIGN_DOC.md synchronized with code changes
+globs: "{src/**,docker-compose.*.yml,nginx/**,Dockerfile,docs/**}"
+alwaysApply: false
+---
+
+# Docs Synchronization
+
+When changing modules, routes, DB models, API, or Docker — update `docs/DESIGN_DOC.md`:
+
+- API Endpoints table
+- Data definition / ER diagram
+- Rollout Plan phase
+- System diagram if architecture changed
+
+Run `make ai-check-docs` before completing the task.
+
+The design doc is the contract for all AI agents and human reviewers.

@@ -1,0 +1,5 @@
+.env
+emails/node_modules/
+src/mail/static/
+uploads/
+tmp/

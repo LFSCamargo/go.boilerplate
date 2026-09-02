@@ -1,0 +1,46 @@
+---
+description: go.boilerplate project purpose, architecture, and AI development workflow
+alwaysApply: true
+---
+
+# go.boilerplate — Project Purpose
+
+Production-ready Go HTTP API starter: auth, email, Docker, OpenAPI, AI quality gates.
+
+Add product features as new `src/modules/<name>` packages — do not grow chat/friends domains here.
+
+**Design doc (source of truth):** `docs/DESIGN_DOC.md`  
+**Agent guide:** `AGENTS.md`
+
+## Architecture
+
+- `src/middleware/` — shared Fiber + Huma auth middleware
+- `src/openapi/` — Huma OpenAPI config, `/docs` playground, `/openapi.json`
+- `src/modules/<name>/router.go` — Huma operations only
+- `src/modules/<name>/handlers/` — thin HTTP handlers
+- `src/modules/<name>/services/` — business logic
+- `src/modules/<name>/repositories/` — GORM (use Preload/Joins)
+- `src/routes/routes.go` — wire modules
+
+## Before finishing any task
+
+```bash
+make ai-check
+make test
+make build
+```
+
+Update `docs/DESIGN_DOC.md` when changing API, models, routes, or Docker.
+
+## Project skills
+
+- **create-db-entity** — `.cursor/skills/create-db-entity/SKILL.md`
+- **create-email-template** — `.cursor/skills/create-email-template/SKILL.md` (Go Boilerplate emails from Figma Protocol)
+
+## Do not
+
+- Put GORM/DB logic in handlers or routers
+- Skip tests for new code
+- Commit secrets
+- Mix 3+ contexts in one file (HTTP + DB + routing)
+- Query inside loops without Preload/batch

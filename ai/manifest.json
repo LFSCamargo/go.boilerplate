@@ -1,0 +1,38 @@
+{
+  "name": "go.boilerplate AI Quality Gates",
+  "version": "1.0.0",
+  "entrypoint": "scripts/ai-checks/run-all.sh",
+  "modes": {
+    "light": "scripts/ai-checks/run-all.sh light",
+    "full": "scripts/ai-checks/run-all.sh full",
+    "docs": "scripts/ai-checks/run-all.sh docs"
+  },
+  "checks": [
+    { "id": "n-plus-one", "script": "scripts/ai-checks/n-plus-one.sh", "modes": ["light", "full"] },
+    { "id": "complexity", "script": "scripts/ai-checks/complexity.sh", "modes": ["full"] },
+    { "id": "spaghetti", "script": "scripts/ai-checks/spaghetti.sh", "modes": ["light", "full"] },
+    { "id": "security-light", "script": "scripts/ai-checks/security-light.sh", "modes": ["light", "full"] },
+    { "id": "security-heavy", "script": "scripts/ai-checks/security-heavy.sh", "modes": ["full"] },
+    { "id": "test-driven", "script": "scripts/ai-checks/test-driven.sh", "modes": ["light", "full"] },
+    { "id": "docs-sync", "script": "scripts/ai-checks/docs-sync.sh", "modes": ["full"] }
+  ],
+  "agent_configs": {
+    "cursor": [".cursor/rules/project-purpose.mdc", ".cursor/hooks.json"],
+    "claude": "CLAUDE.md",
+    "codex": ".codex/instructions.md",
+    "shared": "AGENTS.md"
+  },
+  "design_doc": "docs/DESIGN_DOC.md",
+  "skills": {
+    "create-db-entity": [
+      ".cursor/skills/create-db-entity/SKILL.md",
+      ".claude/skills/create-db-entity/SKILL.md",
+      ".codex/skills/create-db-entity/SKILL.md"
+    ],
+    "create-email-template": [
+      ".cursor/skills/create-email-template/SKILL.md",
+      ".claude/skills/create-email-template/SKILL.md",
+      ".codex/skills/create-email-template/SKILL.md"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "hooks": {
+    "afterFileEdit": [
+      {
+        "command": ".cursor/hooks/after-file-edit.sh",
+        "matcher": "Write|StrReplace|EditNotebook"
+      }
+    ],
+    "stop": [
+      {
+        "command": ".cursor/hooks/stop-quality-gate.sh",
+        "timeout": 120
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": ".cursor/hooks/block-secret-commit.sh",
+        "matcher": "git commit"
+      }
+    ]
+  }
+}
